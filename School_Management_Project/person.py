@@ -34,6 +34,8 @@ class Student(Person):
             gpa = sum / len(self.subjects_grade)
             self.grade = School.value_to_grade(gpa)
 
+        return f"{self.name}'s final grade is {self.grade} with GPA: {gpa:.2f}"
+
     @property
     def id(self):
         return self.__id
