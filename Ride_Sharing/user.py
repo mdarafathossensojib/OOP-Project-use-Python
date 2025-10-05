@@ -38,13 +38,7 @@ class Rider(User):
         else:
             print("No current ride.")
     
-    def pay_ride(self, amount):
-        if self.wallet >= amount:
-            self.wallet -= amount
-            print(f"Ride paid. Remaining Balance: {self.wallet}")
-        else:
-            print("Insufficient balance to pay for the ride.")
-    
+
 class Driver(User):
     def __init__(self, name, email, nid, curr_location):
         super().__init__(name, email, nid)
@@ -55,4 +49,5 @@ class Driver(User):
         print(f"Driver Name: {self.name} ans Email: {self.email}")
     
     def accpet_ride(self, ride):
-        pass
+        ride.set_driver(self)
+        
