@@ -34,6 +34,7 @@ class Rider(User):
         ride_request = RideRequest(self, destination)
         ride_matching = RideMatching(ride_sharing.drivers)
         ride = ride_matching.find_driver(ride_request, vehicle_type)
+        ride.rider = self
         self.curr_Ride = ride
         print("YAY!! We got a ride for You.")
 
@@ -54,5 +55,10 @@ class Driver(User):
         print(f"Driver Name: {self.name} ans Email: {self.email}")
     
     def accpet_ride(self, ride):
+        ride.start_ride()
         ride.set_driver(self)
+    
+    def reach_destination(self, ride):
+        ride.end_ride()
+        print("You have reached your destination.")
 

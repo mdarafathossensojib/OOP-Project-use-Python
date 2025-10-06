@@ -18,15 +18,15 @@ class RideSharing:
         return f"Welcome to {self.company_name} with {len(self.riders)} riders and {len(self.drivers)} drivers."
 
 class Ride:
-    def __init__(self, start_location, end_location, vehicle_type):
+    def __init__(self, start_location, end_location, vehicle):
         self.start_location = start_location
         self.end_location = end_location
         self.driver = None
         self.rider = None
         self.start_time = None
         self.end_time = None
-        self.fare = None
-        self.vehicle_type = vehicle_type
+        self.fare = self.calculate_fare(10, vehicle.vehicle_type)  # Assuming a fixed distance of 10 km for simplicity
+        self.vehicle = vehicle
 
     def set_driver(self, driver):
         self.driver = driver
@@ -38,6 +38,14 @@ class Ride:
         self.end_time = datetime.now()
         self.rider.wallet -= self.fare
         self.driver.wallet += self.fare
+    
+    def calculate_fare(self, distance, vehicle_type):
+        fare_per_km = {
+            'car': 10,
+            'bike': 5,
+            'cng': 8
+        }
+        return distance * fare_per_km.get(vehicle_type)
 
     def __repr__(self):
         return f"Ride Details. From {self.start_location} to {self.end_location}, Fare: {self.fare}"
