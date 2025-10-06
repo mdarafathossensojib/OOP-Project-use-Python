@@ -28,7 +28,7 @@ def admin_action():
                 route = input("Enter bus route: ")
                 total_seats = int(input("Enter total seats: "))
                 admin.add_bus(bus_system, bus_number, name, route, total_seats)
-                print("Bus added successfully!")
+                print(f"Bus {name} added successfully!")
             elif choice == 2:
                 admin.view_buses(bus_system)
             elif choice == 3:

@@ -14,6 +14,8 @@ class BusSystem:
                     new_passenger = Passenger(name, phone, bus)
                     self.passengers.append(new_passenger)
                     print("Tickit book Successfully!")
+                    print(f"Bus Name: {bus.name} and Seat Number is {bus.booked_seats}")
+
                 else:
                     print("No Seat Available!")
                 return
