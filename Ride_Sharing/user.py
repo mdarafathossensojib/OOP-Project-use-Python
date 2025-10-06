@@ -39,11 +39,11 @@ class Rider(User):
         print("YAY!! We got a ride for You.")
 
     def show_curr_ride(self):
-        if self.curr_Ride:
-            print(f"Current Ride from {self.curr_Ride.start_location} to {self.curr_Ride.end_location}")
-        else:
-            print("No current ride.")
-    
+        print("Ride Details: ")
+        print(f"Rider : {self.name}\nDriver : {self.curr_Ride.driver.name}")
+        print(f"Selected Vehicle : {self.curr_Ride.vehicle.vehicle_type}")
+        print(f"From : {self.curr_Ride.start_location} To : {self.curr_Ride.end_location}")
+        print(f"Fare : {self.curr_Ride.fare}")
 
 class Driver(User):
     def __init__(self, name, email, nid, curr_location):

@@ -9,6 +9,6 @@ uber.add_rider(arafat)
 uber.add_driver(bappy)
 
 arafat.request_ride(uber, "Gulshan", "car")
-arafat.show_curr_ride()
 bappy.reach_destination(arafat.curr_Ride)
-print(uber)
+
+arafat.show_curr_ride()
